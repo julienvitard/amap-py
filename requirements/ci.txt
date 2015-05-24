@@ -1,0 +1,5 @@
+-r test.txt
+flake8
+pylint
+radon
+pep8
