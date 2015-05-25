@@ -7,10 +7,6 @@ class TestImports:
         from amapy import __version__
         assert __version__ == '0.0.0'
 
-    def test_package_name(self):
-        from amapy import __package_name__
-        assert __package_name__ == "amapy"
-
     def test_author(self):
         from amapy import __author__
         assert __author__ == "Julien Vitard"
