@@ -9,11 +9,10 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 import os
+import sys
 
-from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -23,7 +22,7 @@ try:
     SECRET_KEY = os.environ["SECRET_KEY"]
 except KeyError:
     error_msg = "Set the SECRET_KEY environment variable"
-    raise ImproperlyConfigured(error_msg)
+    sys.exit(error_msg)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
