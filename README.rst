@@ -1,10 +1,10 @@
-.. |Amapy| replace:: **Amapy**
+.. |Amappy| replace:: **Amappy**
 
 
-Amapy
+Amappy
 =====
 
-|Amapy| is a tool with the ambition to manage your AMAP, easily.
+|Amappy| is a tool with the ambition to manage your AMAP, easily.
 
 
 Features

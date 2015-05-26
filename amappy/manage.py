@@ -6,7 +6,7 @@ import sys
 os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "amapy.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "amappy.settings")
 
     from django.core.management import execute_from_command_line
 

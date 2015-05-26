@@ -1,5 +1,5 @@
 """
-Django settings for amapy project.
+Django settings for amappy project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.8/topics/settings/
@@ -57,7 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'amapy.urls'
+ROOT_URLCONF = 'amappy.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'amapy.wsgi.application'
+WSGI_APPLICATION = 'amappy.wsgi.application'
 
 
 # Database

@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # endcoding: utf8
 
-"""Amapy setup file
+"""Amappy setup file
 
 * install
 * clean
@@ -19,7 +19,7 @@ import codecs
 import os
 import sys
 
-package = "amapy"
+package = "amappy"
 
 
 class Clean(Command):
