@@ -1,5 +1,3 @@
-import pytest
-
 
 class TestImports:
 
@@ -18,7 +16,3 @@ class TestImports:
     def test_url(self):
         from amappy import __url__
         assert __url__ == "https://github.com/julienvitard/amappy"
-
-
-if __name__ == '__main__':
-    pytest.main()

@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Project
+    'amappy.users',
+
+    # 3rd parties
     'rest_framework',
 ]
 
@@ -58,6 +63,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'amappy.urls'
+
+AUTH_USER_MODEL = 'users.AmapUser'
 
 TEMPLATES = [
     {
