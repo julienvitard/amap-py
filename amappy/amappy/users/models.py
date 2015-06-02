@@ -17,3 +17,11 @@ class User(AbstractUser):
 
     def __unicode__(self):
         return self.username
+
+
+class Distributor(User):
+    pass
+
+
+class Supervisor(User):
+    pass

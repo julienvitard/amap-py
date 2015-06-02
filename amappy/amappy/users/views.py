@@ -1,5 +1,9 @@
 from rest_framework import viewsets
-from amappy.users.models import User
+from amappy.users.models import (
+    User,
+    Distributor,
+    Supervisor,
+)
 from amappy.users.serializers import UserSerializer
 
 
@@ -10,10 +14,10 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class DistributorViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().filter(is_distributor=True)
+    queryset = Distributor.objects.all().filter(is_distributor=True)
     serializer_class = UserSerializer
 
 
 class SupervisorViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().filter(is_supervisor=True)
+    queryset = Supervisor.objects.all().filter(is_supervisor=True)
     serializer_class = UserSerializer
