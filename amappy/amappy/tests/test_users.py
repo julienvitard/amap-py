@@ -1,7 +1,7 @@
 
 from django.contrib.auth import get_user_model
 from django.test import TestCase
-from amappy.users.models import AmapUser
+from amappy.users.models import User
 
 
 test_attributes = {
@@ -17,7 +17,7 @@ class UserModelTest(TestCase):
         self.model = get_user_model()
 
     def test_user_model(self):
-        assert self.model is AmapUser
+        assert self.model is User
 
     def test_user_attributes(self):
         user = self.model.objects.create(**test_attributes)

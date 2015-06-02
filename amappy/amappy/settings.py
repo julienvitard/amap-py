@@ -64,7 +64,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'amappy.urls'
 
-AUTH_USER_MODEL = 'users.AmapUser'
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {

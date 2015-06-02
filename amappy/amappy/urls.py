@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 from rest_framework import routers
 from amappy.users.views import (
-    AmapUserViewSet,
+    UserViewSet,
     DistributorViewSet,
     SupervisorViewSet,
 )
@@ -10,7 +10,7 @@ from amappy.users.views import (
 router = routers.DefaultRouter()
 
 # Add /users/ url
-router.register(r'users', AmapUserViewSet)
+router.register(r'users', UserViewSet)
 router.register(r'distributors', DistributorViewSet)
 router.register(r'supervisors', SupervisorViewSet)
 
