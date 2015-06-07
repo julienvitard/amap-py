@@ -1,0 +1,15 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+env:
+  global:
+    - secure: "qZyswFmi+MV1dnu/sleqmr8Nyke74Ky8NXKpvmYyAnGqh83DTdpLGvys+9om3O4/rFWBy9z2vPpL4IobDBd7OMrOeTscFHhHRXvl+xSU5YCfoGvBHf0cwQe8M/vnqlbrsPNCgs0754sFgXmXp84BAQeq/akXVlgVBg4CXbwUXoW2aSRcc0j7NlNpZnVVK2UjI3KbyNXxxkIlxy8gstJK/3NGmQqQo5chlBqljWN+0qg+uPYItlY8ADPsVyR+0A4UdVDrKJPcmCe867hTVgPZKaS3FIb73fNPPltt3+A0atl7OotooIorzxIM67sYyw2dGfgr31Krg9uttd5g//M9xW4IRHf0k8Vwto1JtZP0LNHawWQcxxFemJvx+DCDmyd1i6M6D/CGlhy8lhGeWnTmtUkjSHCur3IUO8bua957BVMmw1ITvLFwsHCWFDW4st6GPD+SHepClYqZqeMyYwWGFm8bX7VhneQHEtCLEEJy6ZKMBlkjzqPNjhaLIGdhd2FT4AWi72szrs2+9P81kfKsXSAUPMEkh+1Q2fwV6CfPDXencjGJXYnI+ZFC9zC14sfUmR3LQeG4qYQoB2jYvbGB5nSCo7QmCpTmyXCvmCvfWyP/DIRLF+g28izKsaAjwa38i9rgx3Q/n+7HDbPzAbQuVswz1Z+TXy1Yo6nJ94C4d90="
+    - TOX_ENV=py27-dj18
+    - TOX_ENV=py27-djlast
+    - TOX_ENV=py34-dj18
+    - TOX_ENV=py34-djlast
+install:
+  - python setup.py install
+script:
+  - tox -r -e $TOX_ENV
