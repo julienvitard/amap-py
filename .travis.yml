@@ -10,6 +10,7 @@ env:
     - TOX_ENV=py34-dj18
     - TOX_ENV=py34-djlast
 install:
+  - pip -r requirements/test.txt
   - python setup.py install
 script:
   - tox -r -e $TOX_ENV
