@@ -28,24 +28,64 @@ class Clean(Command):
     """
 
     description = "run clean command"
-    user_options = []
+    user_options = [
+        ("dry", None, "do not remove, just print"),
+        ("verbose", 'v', "increase verbosity"),
+    ]
 
     def initialize_options(self):
         """init options"""
-        self.to_remove = (
-            "./*/**/*.pyc", "./*/**/*.pyo", "./*/**/__pycache__", "./build",
-            "./dist", "./*.egg-info/", "./docs/build/*",
-            # "*.eggs",  # contains dowloaded packages for tests (saves time)
-        )
+        self.distribution.verbose = 0
+        self.dry = False
+        self.verbose = False
+
+        ext_patterns = (".pyc", ".pyo", )
+        dir_patterns = ("__pycache__", ".egg-info")
+        exclude_patterns = (".tox", ".eggs/")
+
+        self.to_remove = [
+            "./build", "./dist", "./docs/build/*",
+            "*.eggs/",  # contains dowloaded packages for tests (saves time)
+        ]
+
+        this_dir = os.path.dirname(os.path.abspath(__file__))
+
+        for root, dirs, files in os.walk(this_dir):
+            for d in dirs:
+                dirname = os.path.join(root, d)
+                if any(map(lambda x: x in dirname, exclude_patterns)):
+                    continue
+                if any(map(lambda x: x in dirname, dir_patterns)):
+                    self.to_remove.append(dirname)
+
+            self.to_remove = list(set(self.to_remove))
+
+            for f in files:
+                filename = os.path.join(root, f)
+                if any(map(lambda x: x in filename, exclude_patterns)):
+                    continue
+                if any(map(lambda x: x in f, ext_patterns)):
+                    if any(map(lambda x: x in root, dir_patterns)):
+                        self.to_remove.append(root)
+                    else:
+                        self.to_remove.append(filename)
+
+        self.to_remove = sorted(set(self.to_remove))
 
     def finalize_options(self):
         """finalize options"""
         pass
 
     def run(self):
-        os.system("rm -rf %(to_remove)s" % {
-            "to_remove": " ".join(self.to_remove)
-        })
+        if self.dry:
+            print("with --dry option:")
+        else:
+            os.system("rm -rf %(to_remove)s" % {
+                "to_remove": " ".join(self.to_remove)
+            })
+        if self.dry or self.verbose:
+            for remove in self.to_remove:
+                print(remove)
 
 
 class PyTest(TestCommand):
