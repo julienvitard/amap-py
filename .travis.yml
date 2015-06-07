@@ -1,16 +1,20 @@
 language: python
+
 python:
   - "2.7"
   - "3.4"
+
 env:
   global:
-    - secure: "B6s/oNnp8SRbpWiIQJn/jtf3b50fJJLK8uErQsmlaN8Xfg6FisxmsDupWx77V3cXOOr+3XvYsa2uQtKRbg2ViOQbi+SyEOifEMu6G/QcsNLhUTKf3pvhvXUkTh2dTLrkRRVwqwNFGsvuJP+O3Huj/+Tte8MtezSSWsKe1Ar1aB1ptAjxkv0IFAoZ1BCznQbmU5RpQKwfaJNDjS5rNMYTTcW1TSIDr1Bc5gYGwkRqrOrMGMz34mGDPZw62x4cLWxf4ts41HPnZdtIqg37RgPw1KeI7KmBOyoLT151k/szuRPG0VDMTG+7GAHMU+fpt+cGbVieahGZWnThFPDyc3graL30kWeuTcBjTPUm4H7S6LZFPyRL4qECOdwBzEL9YXihSGDtWo7gnbO0guZJN9t5utqQOH9p7ZsdwPXINfH/ZknewXfVow+/PsQBxR6gcM9PWFVHdtfWvmZqgV+mODYDUkpg3hx3qMp6uXOoGapJO/jKkyLARTg8dZ99dxbZPfE1XwyU6VgMn9njL/DZkmC0+ayms2+N14uvjx8MoeTsYbB0hKQ+U3bTEiA2h0A/UXGKeWz4K0EeF6yD32eCburYuJ5WvpYURl4piOI+Wm7VH5mYpOpPhltEZy3cT7LcfnEk+Qtx/f1vfCyRkHHhWvw3ikq/H0eYb+tA39ech0vZArA="
+    - SECRET_KEY: "B6s/oNnp8SRbpWiIQJn/jtf3b50fJJLK8uErQsmlaN8Xfg6Fi"
     - TOX_ENV=py27-dj18
     - TOX_ENV=py27-djlast
     - TOX_ENV=py34-dj18
     - TOX_ENV=py34-djlast
+
 install:
   - pip install -r requirements/test.txt
   - python setup.py install
+
 script:
   - tox -r -e $TOX_ENV
