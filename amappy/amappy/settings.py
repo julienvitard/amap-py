@@ -24,9 +24,8 @@ except KeyError:
     error_msg = "Set the SECRET_KEY environment variable"
     sys.exit(error_msg)
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", False) in (True, "True", "1", 1)
 
 ALLOWED_HOSTS = []
 
@@ -50,6 +49,8 @@ INSTALLED_APPS = [
 
 if DEBUG:
     INSTALLED_APPS.append('debug_toolbar')
+    print("Django-Debug-Toolbar installed")
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
