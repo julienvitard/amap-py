@@ -5,8 +5,10 @@ env:
   - TOX_ENV=py27-djlast
   - TOX_ENV=py34-dj18
   - TOX_ENV=py34-djlast
-  global:
-    - SECRET_KEY='0123456789ABCDEF'
+
+install:
+  - pip install -r requirements/test.txt
+  - python setup.py install
 
 script:
-  - tox -r -e $TOX_ENV
+  - SECRET_KEY='0123456789ABCDEF' tox -r -e $TOX_ENV
