@@ -6,7 +6,7 @@ python:
 
 env:
   global:
-    - SECRET_KEY: "B6s/oNnp8SRbpWiIQJn/jtf3b50fJJLK8uErQsmlaN8Xfg6Fi"
+    - SECRET_KEY=B6s/oNnp8SRbpWiIQJn/jtf3b50fJJLK8uErQsmlaN8Xfg6Fi
     - TOX_ENV=py27-dj18
     - TOX_ENV=py27-djlast
     - TOX_ENV=py34-dj18
