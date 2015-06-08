@@ -1,11 +1,13 @@
 language: python
 
 env:
-  - TOX_ENV=py27-dj18
-  - TOX_ENV=py27-djlast
-  - TOX_ENV=py34-dj18
-  - TOX_ENV=py34-djlast
-  - SECRET_KEY='0123456789ABCDEF'
+  global:
+    - SECRET_KEY='0123456789ABCDEF'
+  matrix:
+    - TOX_ENV=py27-dj18
+    - TOX_ENV=py27-djlast
+    - TOX_ENV=py34-dj18
+    - TOX_ENV=py34-djlast
 
 install:
   - pip install -r requirements/test.txt
