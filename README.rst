@@ -4,6 +4,9 @@
 Amappy
 ======
 
+.. image:: https://travis-ci.org/julienvitard/amappy.svg?branch=master
+    :target: https://travis-ci.org/julienvitard/amappy
+
 |Amappy| is a tool with the ambition to manage your AMAP, easily.
 
 
