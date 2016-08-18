@@ -3,7 +3,7 @@ language: python
 env:
   matrix:
     - TOX_ENV=py27
-    - TOX_ENV=py35
+    - TOX_ENV=py34
 
 install:
   - pip install -r requirements/test.txt
