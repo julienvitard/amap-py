@@ -1,5 +1,4 @@
 -r base.txt
 unittest2
 pytest
-pytest-django
 tox

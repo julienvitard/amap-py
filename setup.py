@@ -80,9 +80,9 @@ class Clean(Command):
         if self.dry:
             print("with --dry option:")
         else:
-            os.system("rm -rf %(to_remove)s" % {
-                "to_remove": " ".join(self.to_remove)
-            })
+            os.system("rm -rf {to_remove}".format(
+                to_remove=" ".join(self.to_remove)
+            ))
         if self.dry or self.verbose:
             for remove in self.to_remove:
                 print(remove)
@@ -163,7 +163,7 @@ def find_infos(*path_parts):
 
 
 infos = find_infos(
-    '%(package)s/%(package)s' % {"package": package},
+    '{package}'.format(package=package),
     '__init__.py',
 )
 
@@ -173,7 +173,7 @@ data = {
     "name":                 package,
     "version":              infos.get("version"),
     "package_dir":          {
-        package: '%(package)s/%(package)s' % {"package": package}
+        package: '{package}'.format(package=package)
     },
     "packages":             find_packages(package, exclude=excluded_tests),
     "include_package_data": True,
