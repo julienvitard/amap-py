@@ -19,5 +19,4 @@ class TestUsers(unittest.TestCase):
             "email":      "john.doe@example.net"
         }
         result = create_user(data)
-        self.assertIsInstance(result, (basestring, ))
         self.assertEqual(len(result), 32)
