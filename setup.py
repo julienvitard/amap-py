@@ -163,17 +163,18 @@ def find_infos(*path_parts):
 
 
 infos = find_infos(
-    '{package}'.format(package=package),
+    '{package}/{package}'.format(package=package),
     '__init__.py',
 )
 
 excluded_tests = ("*.tests", "*.tests.*", "tests.*", "tests", )
 
+
 data = {
     "name":                 package,
     "version":              infos.get("version"),
     "package_dir":          {
-        package: '{package}'.format(package=package)
+        package: '{package}/{package}'.format(package=package)
     },
     "packages":             find_packages(package, exclude=excluded_tests),
     "include_package_data": True,
