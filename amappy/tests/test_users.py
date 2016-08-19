@@ -13,8 +13,7 @@ class TestUsers(unittest.TestCase):
     def test_get_users(self):
         from amappy.resources.users import get_users
         users = get_users()
-        self.assertIsInstance(users, (list, ))
-        self.assertEqual(users, [])
+        self.assertEqual(len(users), 0)
 
     def test_get_user_by_id(self):
         from amappy.resources.users import (
@@ -74,7 +73,6 @@ class TestUsers(unittest.TestCase):
         self.assertIsNotNone(identifier)
 
         users = get_users()
-        self.assertIsInstance(users, (list, ))
         self.assertEqual(len(users), 1)
 
     def test_create_user_existing(self):
@@ -176,14 +174,12 @@ class TestUsers(unittest.TestCase):
         self.assertIsNotNone(identifier)
 
         users = get_users()
-        self.assertIsInstance(users, (list, ))
         self.assertEqual(len(users), 1)
 
         result = delete_user(id=1)
         self.assertIsNone(result)
 
         users = get_users()
-        self.assertIsInstance(users, (list, ))
         self.assertEqual(len(users), 0)
 
     def test_delete_user_by_name(self):
@@ -202,14 +198,12 @@ class TestUsers(unittest.TestCase):
         self.assertIsNotNone(identifier)
 
         users = get_users()
-        self.assertIsInstance(users, (list, ))
         self.assertEqual(len(users), 1)
 
         result = delete_user(name=data["name"])
         self.assertIsNone(result)
 
         users = get_users()
-        self.assertIsInstance(users, (list, ))
         self.assertEqual(len(users), 0)
 
 
