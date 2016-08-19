@@ -16,7 +16,6 @@ def create_user(data=None):
     from uuid import uuid4
 
     identifier = str(uuid4().hex)
-    print identifier
     user = {
         "id":            identifier,
         "name":          data.get("name", ""),
