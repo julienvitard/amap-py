@@ -4,33 +4,24 @@
 """Users resources
 """
 
-USERS = []
+from amappy.persistence import UsersDB
 
 
-def get_users(id=None, name=None):
-    return USERS
+def get_user(id=None, name=None):
+    return UsersDB.read(id=id, name=name)
+
+
+def get_users():
+    return UsersDB.read()
 
 
 def create_user(data=None):
-    from datetime import datetime
-    from uuid import uuid4
-
-    identifier = str(uuid4().hex)
-    user = {
-        "id":            identifier,
-        "name":          data.get("name", ""),
-        "first_name":    data.get("first_name", ""),
-        "creation_date": data.get("creation_date", datetime.utcnow()),
-        "email":         data.get("email", ""),
-    }
-
-    USERS.append(user)
-    return identifier
+    return UsersDB.create(data)
 
 
 def delete_user(id=None, name=None):
-    pass
+    UsersDB.delete(id=id, name=name)
 
 
 def update_user(id=None, name=None, data=None):
-    pass
+    return UsersDB.update(id=id, name=name, data=data)
