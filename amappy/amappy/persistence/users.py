@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# endcoding: utf8
+# -*- coding: utf-8 -*-
 
 """Users persistence
 """
@@ -40,7 +40,7 @@ class UsersMemoryDB(Persistence):
             return cls.USERS_BY_ID[id]
         elif name:
             return cls.USERS_BY_NAME[name]
-        return cls.USERS_BY_ID.values()
+        return list(cls.USERS_BY_ID.values())
 
     @classmethod
     def update(cls, id=None, name=None, data=None):

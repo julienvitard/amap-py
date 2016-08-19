@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# endcoding: utf8
+# -*- coding: utf-8 -*-
 
 """Users resources
 """
