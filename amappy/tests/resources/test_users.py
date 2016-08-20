@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# endcoding: utf8
+# -*- coding: utf-8 -*-
 
 import unittest
 
@@ -205,7 +205,3 @@ class TestUsers(unittest.TestCase):
 
         users = get_users()
         self.assertEqual(len(users), 0)
-
-
-if __name__ == '__main__':
-    unittest.main()
