@@ -18,7 +18,3 @@ class UsersTestCase(unittest.TestCase):
     def test_get_users(self):
         rv = self.app.get('/users')
         print(rv.data)
-
-
-if __name__ == '__main__':
-    unittest.main()
