@@ -8,7 +8,7 @@ Amappy
     :target: https://travis-ci.org/julienvitard/amappy
 
 .. image:: https://coveralls.io/repos/github/julienvitard/amappy/badge.svg?branch=master
-    :target: https://coveralls.io/github/julienvitard/amappy
+    :target: https://coveralls.io/github/julienvitard/amappy?branch=master
 
     
 |Amappy| is a tool with the ambition to manage your AMAP, easily.
