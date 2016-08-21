@@ -10,11 +10,20 @@ class UsersTestCase(unittest.TestCase):
 
     def setUp(self):
         from amappy.api.rest import app
-        self.app = app.test_client()
+        from amappy.persistence import UsersDB
 
-    def tearDown(self):
-        pass
+        self.app = app.test_client()
+        self.app.testing = True
+        UsersDB.reset()
 
     def test_get_users(self):
-        rv = self.app.get('/users')
-        print(rv.data)
+        result = self.app.get('/users')
+        self.assertEqual(result.status_code, 200)
+        self.assertEqual(result.data, '[]')
+
+    def test_get_user_empty_db(self):
+        url = '/users/{}'
+        id_or_name = "user_does_not_exist"
+        result = self.app.get(url.format(id_or_name))
+        self.assertEqual(result.status_code, 404)
+

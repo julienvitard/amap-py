@@ -36,10 +36,13 @@ class UsersMemoryDB(Persistence):
 
     @classmethod
     def read(cls, id=None, name=None):
-        if id:
-            return cls.USERS_BY_ID[id]
-        elif name:
-            return cls.USERS_BY_NAME[name]
+        try:
+            if id:
+                return cls.USERS_BY_ID[id]
+            elif name:
+                return cls.USERS_BY_NAME[name]
+        except KeyError:
+            return None
         return list(cls.USERS_BY_ID.values())
 
     @classmethod

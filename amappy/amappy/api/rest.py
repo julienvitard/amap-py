@@ -4,6 +4,7 @@
 """REST API
 """
 
+from flask import abort
 from flask import Flask
 
 app = Flask(__name__)
@@ -22,6 +23,10 @@ def get_user(id_or_name=None):
     from amappy.resources.users import get_user
     key = "id" if isinstance(id_or_name, (int, )) else "name"
     users = get_user(**{key: id_or_name})
+
+    if users is None:
+        abort(404)
+
     return json.dumps(users)
 
 
