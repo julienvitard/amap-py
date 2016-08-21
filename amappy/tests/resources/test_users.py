@@ -30,7 +30,7 @@ class TestUsers(unittest.TestCase):
         identifier = create_user(data)
         self.assertIsNotNone(identifier)
 
-        user = get_user(id=identifier)
+        user = get_user(id_or_name=identifier)
         self.assertEqual(user["first_name"], data["first_name"])
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["email"], data["email"])
@@ -51,7 +51,7 @@ class TestUsers(unittest.TestCase):
         identifier = create_user(data)
         self.assertIsNotNone(identifier)
 
-        user = get_user(name=data["name"])
+        user = get_user(id_or_name=data["name"])
         self.assertEqual(user["first_name"], data["first_name"])
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["email"], data["email"])
@@ -118,10 +118,10 @@ class TestUsers(unittest.TestCase):
             "email":      "jane.doe@example.net"
         }
 
-        result = update_user(id=identifier, data=newdata)
+        result = update_user(id_or_name=identifier, data=newdata)
         self.assertIsNone(result)
 
-        user = get_user(id=identifier)
+        user = get_user(id_or_name=identifier)
         self.assertIsNotNone(user)
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["first_name"], newdata["first_name"])
@@ -148,10 +148,10 @@ class TestUsers(unittest.TestCase):
             "email":      "jane.doe@example.net"
         }
 
-        result = update_user(name=data["name"], data=newdata)
+        result = update_user(id_or_name=data["name"], data=newdata)
         self.assertIsNone(result)
 
-        user = get_user(id=identifier)
+        user = get_user(id_or_name=identifier)
         self.assertIsNotNone(user)
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["first_name"], newdata["first_name"])
@@ -176,7 +176,7 @@ class TestUsers(unittest.TestCase):
         users = get_users()
         self.assertEqual(len(users), 1)
 
-        result = delete_user(id=1)
+        result = delete_user(id_or_name=1)
         self.assertIsNone(result)
 
         users = get_users()
@@ -200,7 +200,7 @@ class TestUsers(unittest.TestCase):
         users = get_users()
         self.assertEqual(len(users), 1)
 
-        result = delete_user(name=data["name"])
+        result = delete_user(id_or_name=data["name"])
         self.assertIsNone(result)
 
         users = get_users()

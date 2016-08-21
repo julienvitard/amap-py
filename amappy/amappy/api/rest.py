@@ -13,27 +13,26 @@ app = Flask(__name__)
 
 @app.route("/users", methods=["GET"])
 def get_users():
-    import json
     from amappy.resources.users import get_users
     return jsonify(get_users())
 
 
 @app.route("/users/<id_or_name>", methods=["GET"])
 def get_user(id_or_name=None):
-    import json
     from amappy.resources.users import get_user
-    key = "id" if isinstance(id_or_name, (int, )) else "name"
-    users = get_user(**{key: id_or_name})
-
+    users = get_user(id_or_name)
     if users is None:
         abort(404)
-
     return jsonify(users)
 
 
 @app.route("/users", methods=["POST"])
-def create_user(id_or_name=None, data=None):
-    return ""
+def create_user(data=None):
+    from amappy.resources.users import create_user
+    from flask import request
+    data = {key: request.form.get(key) for key in request.form.keys()}
+    identifier = create_user(data=data)
+    return jsonify({"id": identifier})
 
 
 @app.route("/users/<id_or_name>", methods=["PUT"])

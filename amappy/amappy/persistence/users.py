@@ -19,7 +19,6 @@ class UsersMemoryDB(Persistence):
     @classmethod
     def create(cls, data):
         from datetime import datetime
-
         if data["name"] in cls.USERS_BY_NAME.keys():
             raise ValueError("User already exists")
 
