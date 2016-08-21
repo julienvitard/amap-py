@@ -47,6 +47,5 @@ def update_user(id_or_name=None, data=None):
 @app.route("/users/<id_or_name>", methods=["DELETE"])
 def delete_user(id_or_name=None):
     from amappy.resources.users import delete_user
-    from flask import request
     result = delete_user(id_or_name=id_or_name)
     return jsonify(result)
