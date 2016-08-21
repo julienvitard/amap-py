@@ -10,6 +10,16 @@ class TestUsers(unittest.TestCase):
         from amappy.persistence import UsersDB
         UsersDB.reset()
 
+    def test_extract_id_or_name(self):
+        from amappy.resources.users import extract_id_or_name
+        result = extract_id_or_name("username")
+        self.assertEqual(result, (None, "username"))
+        result = extract_id_or_name(1)
+        self.assertEqual(result, (1, None))
+        result = extract_id_or_name(None)
+        self.assertEqual(result, (None, None))
+
+
     def test_get_users(self):
         from amappy.resources.users import get_users
         users = get_users()

@@ -12,6 +12,8 @@ def extract_id_or_name(id_or_name):
         id, name = int(id_or_name), None
     except ValueError:
         id, name = None, id_or_name
+    except TypeError:
+        id, name = None, None
     return id, name
 
 

@@ -29,7 +29,7 @@ class UsersTestCase(unittest.TestCase):
         result = self.app.get(url)
         self.assertEqual(result.status_code, 404)
 
-    def test_get_user(self):
+    def test_get_user_by_id(self):
         from amappy.persistence import UsersDB
 
         data = {
@@ -47,13 +47,21 @@ class UsersTestCase(unittest.TestCase):
         result = self.app.get(url)
         self.assertEqual(result.status_code, 200)
 
+    def test_get_user_by_name(self):
+        from amappy.persistence import UsersDB
 
+        data = {
+            "name":       "Doe",
+            "first_name": "John",
+            "email":      "john.doe@example.net"
+        }
+        url = "/users"
 
-        # results = json.loads(result.get_data(as_text=True))
-        # self.assertEqual(len(results), 1)
+        result = self.app.post(url, data=data)
+        self.assertEqual(result.status_code, 200)
 
-        # user = results[0]
-        # self.assertEqual(user.get("id"), 1)
-        # self.assertEqual(user.get("first_name"), data.get("first_name"))
-        # self.assertEqual(user.get("name"), data.get("name"))
-        # self.assertEqual(user.get("email"), data.get("email"))
+        url = "/users/Doe" 
+
+        result = self.app.get(url)
+        self.assertEqual(result.status_code, 200)
+
