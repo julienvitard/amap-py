@@ -6,6 +6,7 @@
 
 from flask import abort
 from flask import Flask
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -14,7 +15,7 @@ app = Flask(__name__)
 def get_users():
     import json
     from amappy.resources.users import get_users
-    return json.dumps(get_users())
+    return jsonify(get_users())
 
 
 @app.route("/users/<id_or_name>", methods=["GET"])
@@ -27,7 +28,7 @@ def get_user(id_or_name=None):
     if users is None:
         abort(404)
 
-    return json.dumps(users)
+    return jsonify(users)
 
 
 @app.route("/users", methods=["POST"])

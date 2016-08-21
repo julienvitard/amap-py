@@ -3,6 +3,7 @@
 
 """"""
 
+import json
 import unittest
 
 
@@ -19,7 +20,8 @@ class UsersTestCase(unittest.TestCase):
     def test_get_users(self):
         result = self.app.get('/users')
         self.assertEqual(result.status_code, 200)
-        self.assertEqual(result.data, '[]')
+        data = json.loads(result.get_data(as_text=True))
+        self.assertEqual(data, [])
 
     def test_get_user_empty_db(self):
         url = '/users/{}'
