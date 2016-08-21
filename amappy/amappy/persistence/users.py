@@ -46,12 +46,14 @@ class UsersMemoryDB(Persistence):
 
     @classmethod
     def update(cls, id=None, name=None, data=None):
+        user = None
         if id:
             user = cls.USERS_BY_ID[id]
             user.update(data)
         elif name:
             user = cls.USERS_BY_NAME[name]
             user.update(data)
+        return user
 
     @classmethod
     def delete(cls, id=None, name=None):
@@ -59,10 +61,12 @@ class UsersMemoryDB(Persistence):
             user = cls.USERS_BY_ID[id]
             cls.USERS_BY_NAME.pop(user["name"])
             cls.USERS_BY_ID.pop(id)
+            del user
         elif name:
             user = cls.USERS_BY_NAME[name]
             cls.USERS_BY_ID.pop(user["id"])
             cls.USERS_BY_NAME.pop(name)
+            del user
 
     @classmethod
     def reset(cls):

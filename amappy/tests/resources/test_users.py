@@ -128,11 +128,7 @@ class TestUsers(unittest.TestCase):
             "email":      "jane.doe@example.net"
         }
 
-        result = update_user(id_or_name=identifier, data=newdata)
-        self.assertIsNone(result)
-
-        user = get_user(id_or_name=identifier)
-        self.assertIsNotNone(user)
+        user = update_user(id_or_name=identifier, data=newdata)
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["first_name"], newdata["first_name"])
         self.assertEqual(user["email"], newdata["email"])
@@ -158,11 +154,7 @@ class TestUsers(unittest.TestCase):
             "email":      "jane.doe@example.net"
         }
 
-        result = update_user(id_or_name=data["name"], data=newdata)
-        self.assertIsNone(result)
-
-        user = get_user(id_or_name=identifier)
-        self.assertIsNotNone(user)
+        user = update_user(id_or_name=data["name"], data=newdata)
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["first_name"], newdata["first_name"])
         self.assertEqual(user["email"], newdata["email"])

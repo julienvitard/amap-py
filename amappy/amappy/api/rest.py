@@ -37,13 +37,16 @@ def create_user(data=None):
 
 @app.route("/users/<id_or_name>", methods=["PUT"])
 def update_user(id_or_name=None, data=None):
-    return ""
+    from amappy.resources.users import update_user
+    from flask import request
+    data = {key: request.form.get(key) for key in request.form.keys()}
+    user = update_user(id_or_name=id_or_name, data=data)
+    return jsonify(user)
 
 
 @app.route("/users/<id_or_name>", methods=["DELETE"])
 def delete_user(id_or_name=None):
-    return ""
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    from amappy.resources.users import delete_user
+    from flask import request
+    result = delete_user(id_or_name=id_or_name)
+    return jsonify(result)

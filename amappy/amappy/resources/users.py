@@ -32,7 +32,7 @@ def create_user(data=None):
 
 def delete_user(id_or_name=None):
     id, name = extract_id_or_name(id_or_name)
-    UsersDB.delete(id=id, name=name)
+    return UsersDB.delete(id=id, name=name)
 
 
 def update_user(id_or_name=None, data=None):
