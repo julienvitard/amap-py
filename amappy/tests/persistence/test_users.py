@@ -6,8 +6,12 @@ import unittest
 
 class TestUsersMemoryDB(unittest.TestCase):
 
+    def setUp(self):
+        from amappy.persistence.users import UsersMemoryDB
+        UsersMemoryDB.reset()
+
     def test_users_memory_db_init(self):
         from amappy.persistence.users import UsersMemoryDB
-        db = UsersMemoryDB
+        db = UsersMemoryDB()
         self.assertEqual(db.USERS_BY_ID, {})
         self.assertEqual(db.USERS_BY_NAME, {})

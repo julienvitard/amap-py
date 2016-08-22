@@ -19,7 +19,6 @@ class TestUsers(unittest.TestCase):
         result = extract_id_or_name(None)
         self.assertEqual(result, (None, None))
 
-
     def test_get_users(self):
         from amappy.resources.users import get_users
         users = get_users()
