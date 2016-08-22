@@ -19,7 +19,6 @@ class UsersMemoryDB(Persistence):
     @classmethod
     def create(cls, data):
         from datetime import datetime
-
         if data["name"] in cls.USERS_BY_NAME.keys():
             raise ValueError("User already exists")
 
@@ -36,20 +35,25 @@ class UsersMemoryDB(Persistence):
 
     @classmethod
     def read(cls, id=None, name=None):
-        if id:
-            return cls.USERS_BY_ID[id]
-        elif name:
-            return cls.USERS_BY_NAME[name]
+        try:
+            if id:
+                return cls.USERS_BY_ID[id]
+            elif name:
+                return cls.USERS_BY_NAME[name]
+        except KeyError:
+            return None
         return list(cls.USERS_BY_ID.values())
 
     @classmethod
     def update(cls, id=None, name=None, data=None):
+        user = None
         if id:
             user = cls.USERS_BY_ID[id]
             user.update(data)
         elif name:
             user = cls.USERS_BY_NAME[name]
             user.update(data)
+        return user
 
     @classmethod
     def delete(cls, id=None, name=None):
@@ -57,10 +61,12 @@ class UsersMemoryDB(Persistence):
             user = cls.USERS_BY_ID[id]
             cls.USERS_BY_NAME.pop(user["name"])
             cls.USERS_BY_ID.pop(id)
+            del user
         elif name:
             user = cls.USERS_BY_NAME[name]
             cls.USERS_BY_ID.pop(user["id"])
             cls.USERS_BY_NAME.pop(name)
+            del user
 
     @classmethod
     def reset(cls):

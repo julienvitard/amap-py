@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# endcoding: utf8
+# -*- coding: utf-8 -*-
 
 import unittest
 
@@ -9,6 +9,16 @@ class TestUsers(unittest.TestCase):
     def setUp(self):
         from amappy.persistence import UsersDB
         UsersDB.reset()
+
+    def test_extract_id_or_name(self):
+        from amappy.resources.users import extract_id_or_name
+        result = extract_id_or_name("username")
+        self.assertEqual(result, (None, "username"))
+        result = extract_id_or_name(1)
+        self.assertEqual(result, (1, None))
+        result = extract_id_or_name(None)
+        self.assertEqual(result, (None, None))
+
 
     def test_get_users(self):
         from amappy.resources.users import get_users
@@ -30,7 +40,7 @@ class TestUsers(unittest.TestCase):
         identifier = create_user(data)
         self.assertIsNotNone(identifier)
 
-        user = get_user(id=identifier)
+        user = get_user(id_or_name=identifier)
         self.assertEqual(user["first_name"], data["first_name"])
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["email"], data["email"])
@@ -51,7 +61,7 @@ class TestUsers(unittest.TestCase):
         identifier = create_user(data)
         self.assertIsNotNone(identifier)
 
-        user = get_user(name=data["name"])
+        user = get_user(id_or_name=data["name"])
         self.assertEqual(user["first_name"], data["first_name"])
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["email"], data["email"])
@@ -118,11 +128,7 @@ class TestUsers(unittest.TestCase):
             "email":      "jane.doe@example.net"
         }
 
-        result = update_user(id=identifier, data=newdata)
-        self.assertIsNone(result)
-
-        user = get_user(id=identifier)
-        self.assertIsNotNone(user)
+        user = update_user(id_or_name=identifier, data=newdata)
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["first_name"], newdata["first_name"])
         self.assertEqual(user["email"], newdata["email"])
@@ -148,11 +154,7 @@ class TestUsers(unittest.TestCase):
             "email":      "jane.doe@example.net"
         }
 
-        result = update_user(name=data["name"], data=newdata)
-        self.assertIsNone(result)
-
-        user = get_user(id=identifier)
-        self.assertIsNotNone(user)
+        user = update_user(id_or_name=data["name"], data=newdata)
         self.assertEqual(user["name"], data["name"])
         self.assertEqual(user["first_name"], newdata["first_name"])
         self.assertEqual(user["email"], newdata["email"])
@@ -176,7 +178,7 @@ class TestUsers(unittest.TestCase):
         users = get_users()
         self.assertEqual(len(users), 1)
 
-        result = delete_user(id=1)
+        result = delete_user(id_or_name=1)
         self.assertIsNone(result)
 
         users = get_users()
@@ -200,12 +202,8 @@ class TestUsers(unittest.TestCase):
         users = get_users()
         self.assertEqual(len(users), 1)
 
-        result = delete_user(name=data["name"])
+        result = delete_user(id_or_name=data["name"])
         self.assertIsNone(result)
 
         users = get_users()
         self.assertEqual(len(users), 0)
-
-
-if __name__ == '__main__':
-    unittest.main()

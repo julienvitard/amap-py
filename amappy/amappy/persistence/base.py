@@ -8,21 +8,21 @@
 class Persistence:
 
     @classmethod
-    def create(cls, user):
-        raise NotImplemented
+    def create(cls, data=None):
+        raise NotImplementedError
 
     @classmethod
     def read(cls, id=None, name=None):
-        raise NotImplemented
+        raise NotImplementedError
 
     @classmethod
     def update(cls, id=None, name=None, data=None):
-        raise NotImplemented
+        raise NotImplementedError
 
     @classmethod
     def delete(cls, id=None, name=None):
-        raise NotImplemented
+        raise NotImplementedError
 
     @classmethod
     def reset(cls):
-        raise NotImplemented
+        raise NotImplementedError
