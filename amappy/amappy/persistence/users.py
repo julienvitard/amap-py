@@ -13,7 +13,7 @@ class UsersMemoryDB(Persistence):
 
     @classmethod
     def get_id(cls):
-        ids = cls.USERS_BY_ID.values()
+        ids = cls.USERS_BY_ID.keys()
         return (ids and max(ids) + 1) or 1
 
     @classmethod
