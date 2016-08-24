@@ -24,3 +24,13 @@ class TestUsersMemoryDB(unittest.TestCase):
 
         UsersMemoryDB.USERS_BY_ID = {2: "", 5: ""}
         self.assertEqual(UsersMemoryDB.get_id(), 6)
+
+    def test_create(self):
+        from amappy.persistence.users import UsersMemoryDB
+        data = {
+            "name": "Doe",
+        }
+        identifier = UsersMemoryDB.create(data=data)
+        self.assertEqual(identifier, 1)
+        self.assertEqual(len(UsersMemoryDB.USERS_BY_ID.keys()), 1)
+        self.assertEqual(len(UsersMemoryDB.USERS_BY_NAME.keys()), 1)
