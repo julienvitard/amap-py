@@ -34,3 +34,12 @@ class TestUsersMemoryDB(unittest.TestCase):
         self.assertEqual(identifier, 1)
         self.assertEqual(len(UsersMemoryDB.USERS_BY_ID.keys()), 1)
         self.assertEqual(len(UsersMemoryDB.USERS_BY_NAME.keys()), 1)
+
+    def test_create_value_error(self):
+        from amappy.persistence.users import UsersMemoryDB
+        data = {"name": "Doe"}
+        UsersMemoryDB.create(data=data)
+
+        with self.assertRaises(ValueError):
+            new_data = {"name": "Doe"}
+            UsersMemoryDB.create(data=new_data)
