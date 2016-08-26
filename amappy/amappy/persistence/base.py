@@ -30,9 +30,6 @@ class Persistence:
 
 class InMemoryDB(Persistence):
 
-    def __init__(self):
-        pass
-
     @classmethod
     def create(cls, data=None):
         pass
