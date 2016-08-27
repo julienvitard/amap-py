@@ -56,3 +56,15 @@ class TestUsersMemoryDB(unittest.TestCase):
         user = UsersMemoryDB.read(name="Doe")
         self.assertEqual(user["name"], "Doe")
         self.assertEqual(user["id"], 1)
+
+    def test_read_by_id(self):
+        from amappy.persistence.users import UsersMemoryDB
+        data = {
+            "name": "Doe",
+        }
+        identifier = UsersMemoryDB.create(data=data)
+        self.assertIsNotNone(identifier)
+        self.assertEqual(identifier, 1)
+        user = UsersMemoryDB.read(id=1)
+        self.assertEqual(user["name"], "Doe")
+        self.assertEqual(user["id"], 1)
