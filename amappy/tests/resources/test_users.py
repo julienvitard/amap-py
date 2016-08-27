@@ -110,7 +110,6 @@ class TestUsers(unittest.TestCase):
     def test_update_user_by_id(self):
         from amappy.resources.users import (
             create_user,
-            get_user,
             update_user,
         )
 
@@ -136,7 +135,6 @@ class TestUsers(unittest.TestCase):
     def test_update_user_by_name(self):
         from amappy.resources.users import (
             create_user,
-            get_user,
             update_user,
         )
 
