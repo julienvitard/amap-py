@@ -26,5 +26,6 @@ Usage
 
 Prepare your environment::
 
-  $ cd amappy
-  $ pip install -r requirements/test.txt
+  $ workon amappy
+  $(amappy) cd amappy
+  $(amappy) pip install -r requirements/test.txt

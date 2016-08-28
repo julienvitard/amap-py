@@ -28,3 +28,9 @@ class TestInterface(unittest.TestCase):
         self.assertTrue(getattr(Persistence, "reset"))
         with self.assertRaises(NotImplementedError):
             Persistence.reset()
+
+
+class TestInMemoryDB(unittest.TestCase):
+    def test_persistence_inmemorydb(self):
+        from amappy.persistence.base import InMemoryDB
+        del InMemoryDB
