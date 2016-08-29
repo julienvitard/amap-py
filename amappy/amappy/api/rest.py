@@ -50,3 +50,7 @@ def delete_user(id_or_name=None):
     from flask import request
     result = delete_user(id_or_name=id_or_name)
     return jsonify(result)
+
+
+if __name__ == '__main__':
+    app.run()
