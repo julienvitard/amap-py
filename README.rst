@@ -26,6 +26,15 @@ Usage
 
 Prepare your environment::
 
-  $ workon amappy
-  $(amappy) cd amappy
-  $(amappy) pip install -r requirements/test.txt
+   $ workon amappy
+   $(amappy) cd amappy
+   $(amappy) pip install -r requirements/test.txt
+   $(amappy) python setup.py install
+
+
+Launch REST API::
+
+   $(amappy) python -m amappy
+   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+
