@@ -37,6 +37,9 @@ Launch REST API::
    $(amappy) python -m amappy
    * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 
+   $(amappy) python -m amappy --host 0.0.0.0 --port 8000
+   * Running on http://0.0.0.0:8000/ (Press CTRL+C to quit)
+
 
 Example: retrieve users::
 
