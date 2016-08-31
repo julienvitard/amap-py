@@ -49,7 +49,3 @@ def delete_user(id_or_name=None):
     from amappy.resources.users import delete_user
     result = delete_user(id_or_name=id_or_name)
     return jsonify(result)
-
-
-if __name__ == '__main__':
-    app.run()
