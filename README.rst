@@ -43,9 +43,37 @@ Launch REST API::
    * Running on http://0.0.0.0:8000/ (Press CTRL+C to quit)
 
 
-Example: retrieve users::
+Examples:
 
-   # GET /Users:
+* retrieve users::
+
+   # GET /users:
 
    $ curl -k http://127.0.0.1:5000/users
    []
+
+* create user::
+
+   # POST /users:
+
+   $ curl -k -X POST http://127.0.0.1:8000/users --data "firstname=John&name=Doe&email=jodn.doe@test.com"
+   {
+     "id": 1
+   }
+
+* retrieve user 1::
+
+   # GET /users:
+
+   $ curl -k -X GET http://127.0.0.1:8000/users/1
+   {
+     "creation_date": "Sun, 04 Sep 2016 07:35:34 GMT",
+     "firstname": "John",
+     "name": "Doe"
+     "email": "jodn.doe@test.com",
+     "id": 1,
+   }
+
+.. Note::
+
+   at the moment, there is no enforcement for the fields.
