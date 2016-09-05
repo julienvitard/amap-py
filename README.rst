@@ -61,7 +61,7 @@ Examples:
      "id": 1
    }
 
-* retrieve user 1::
+* retrieve user by id "1"::
 
    # GET /users:
 
@@ -73,6 +73,23 @@ Examples:
      "email": "jodn.doe@test.com",
      "id": 1,
    }
+
+* retrieve user by name "Doe"::
+
+   # GET /users:
+
+   $ curl -k -X GET http://127.0.0.1:8000/users/Doe
+   {
+     "creation_date": "Sun, 04 Sep 2016 07:35:34 GMT",
+     "firstname": "John",
+     "name": "Doe"
+     "email": "jodn.doe@test.com",
+     "id": 1,
+   }
+
+.. Note::
+
+   at the moment, there is no enforcement for the fields.
 
 .. Note::
 
