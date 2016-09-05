@@ -56,7 +56,7 @@ Examples:
 
    # POST /users:
 
-   $ curl -k -X POST http://127.0.0.1:8000/users --data "firstname=John&name=Doe&email=jodn.doe@test.com"
+   $ curl -k -X POST http://127.0.0.1:8000/users --data "firstname=John&name=Doe&email=john.doe@test.com"
    {
      "id": 1
    }
@@ -70,7 +70,7 @@ Examples:
      "creation_date": "Sun, 04 Sep 2016 07:35:34 GMT",
      "firstname": "John",
      "name": "Doe"
-     "email": "jodn.doe@test.com",
+     "email": "john.doe@test.com",
      "id": 1,
    }
 
@@ -83,7 +83,7 @@ Examples:
      "creation_date": "Sun, 04 Sep 2016 07:35:34 GMT",
      "firstname": "John",
      "name": "Doe"
-     "email": "jodn.doe@test.com",
+     "email": "john.doe@test.com",
      "id": 1,
    }
 
@@ -91,6 +91,3 @@ Examples:
 
    at the moment, there is no enforcement for the fields.
 
-.. Note::
-
-   at the moment, there is no enforcement for the fields.
