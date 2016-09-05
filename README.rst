@@ -101,6 +101,19 @@ Examples:
      "id": 1,
    }
 
+* modify user by name "Doe"::
+
+   # GET /users:
+
+   $ curl -k -X PUT http://127.0.0.1:8000/users/Doe -d email=jany.doe@test.com -d firstname=Jany
+   {
+     "creation_date": "Sun, 04 Sep 2016 07:35:34 GMT",
+     "firstname": "John",
+     "name": "Doe"
+     "email": "john.doe@test.com",
+     "id": 1,
+   }
+
 .. Note::
 
    at the moment, there is no enforcement for the fields.
