@@ -120,9 +120,16 @@ Examples:
 
 * delete user by id "1"::
 
-   # GET /users:
+   # DELETE /users/{id}:
 
    $ curl -k -X DELETE http://127.0.0.1:8000/users/1
+   null
+
+* delete user by name "Doe"::
+
+   # DELETE /users/{name}:
+
+   $ curl -k -X DELETE http://127.0.0.1:8000/users/Doe
    null
 
 .. Note::
