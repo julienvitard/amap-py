@@ -63,7 +63,7 @@ Examples:
 
 * retrieve user by id "1"::
 
-   # GET /users:
+   # GET /users/{id}:
 
    $ curl -k -X GET http://127.0.0.1:8000/users/1
    {
@@ -76,7 +76,7 @@ Examples:
 
 * retrieve user by name "Doe"::
 
-   # GET /users:
+   # GET /users/{name}:
 
    $ curl -k -X GET http://127.0.0.1:8000/users/Doe
    {
@@ -90,7 +90,7 @@ Examples:
 
 * modify user by id "1"::
 
-   # GET /users:
+   # PUT /users/{id}:
 
    $ curl -k -X PUT http://127.0.0.1:8000/users/1 -d email=jane.doe@test.com -d firstname=Jane
    {
@@ -103,7 +103,7 @@ Examples:
 
 * modify user by name "Doe"::
 
-   # GET /users:
+   # PUT /users/{name}:
 
    $ curl -k -X PUT http://127.0.0.1:8000/users/Doe -d email=jany.doe@test.com -d firstname=Jany
    {
