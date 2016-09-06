@@ -118,3 +118,14 @@ Examples:
 
    at the moment, there is no enforcement for the fields.
 
+* delete user by id "1"::
+
+   # GET /users:
+
+   $ curl -k -X DELETE http://127.0.0.1:8000/users/1
+   null
+
+.. Note::
+
+   at the moment, there is no enforcement for the fields.
+
