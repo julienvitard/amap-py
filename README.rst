@@ -114,10 +114,6 @@ Examples:
      "id": 1,
    }
 
-.. Note::
-
-   at the moment, there is no enforcement for the fields.
-
 * delete user by id "1"::
 
    # DELETE /users/{id}:
