@@ -30,7 +30,7 @@ def get_user(id_or_name=None):
 def create_user(data=None):
     from amappy.resources.users import create_user
     from flask import request
-    data = {key: request.form.get(key) for key in request.form.keys()}
+    data = dict((key, request.form.get(key)) for key in request.form.keys())
     identifier = create_user(data=data)
     return jsonify({"id": identifier})
 
@@ -39,7 +39,7 @@ def create_user(data=None):
 def update_user(id_or_name=None, data=None):
     from amappy.resources.users import update_user
     from flask import request
-    data = {key: request.form.get(key) for key in request.form.keys()}
+    data = dict((key, request.form.get(key)) for key in request.form.keys())
     user = update_user(id_or_name=id_or_name, data=data)
     return jsonify(user)
 
