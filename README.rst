@@ -10,9 +10,9 @@ Amappy
 .. image:: https://coveralls.io/repos/github/julienvitard/amappy/badge.png?branch=master
     :target: https://coveralls.io/github/julienvitard/amappy?branch=master
 
-.. image:: http://amappy.readthedocs.io/en/latest/?badge=latest
-    :target: http://amappy.readthedocs.io/
-
+.. image:: https://readthedocs.org/projects/amappy/badge/?version=latest
+    :target: http://amappy.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
     
 |Amappy| is a tool with the ambition to manage your AMAP, easily.
 
