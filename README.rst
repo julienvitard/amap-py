@@ -6,6 +6,7 @@ Amappy
 
 .. image:: https://travis-ci.org/julienvitard/amappy.svg?branch=master
     :target: https://travis-ci.org/julienvitard/amappy
+
 .. image:: https://coveralls.io/repos/github/julienvitard/amappy/badge.png?branch=master
     :target: https://coveralls.io/github/julienvitard/amappy?branch=master
 

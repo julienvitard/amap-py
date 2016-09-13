@@ -5,6 +5,7 @@
 # import os
 # import shlex
 import sphinx_rtd_theme
+import datetime
 
 
 # -- General configuration ------------------------------------------------
@@ -38,8 +39,11 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Amappy'
-copyright = '2015, Julien Vitard'
 author = 'Julien Vitard'
+copyright = '2015-{year}, {author}'.format(
+    year=datetime.date.today().year,
+    author=author,
+)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -90,6 +94,8 @@ pygments_style = 'sphinx'
 
 # If true, keep warnings as "system message" paragraphs in the built documents.
 # keep_warnings = False
+
+suppress_warnings = ['image.nonlocal_uri']
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
